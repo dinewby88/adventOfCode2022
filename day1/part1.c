@@ -32,12 +32,12 @@ void readData()
         }
         else
         {
-            printf("finishing %d elf. %d total cal\n", currentElfNumber, totalCalories);
+            //printf("finishing %d elf. %d total cal\n", currentElfNumber, totalCalories);
             if (totalCalories > maxCalories) 
             {
                 maxCalories = totalCalories;
                 elfNumber = currentElfNumber;
-                printf("** updating max calories **\n");
+                //printf("** updating max calories **\n");
             }
             totalCalories = 0;
             currentElfNumber++;
@@ -47,12 +47,12 @@ void readData()
     
     if (recordNeedsReporting)
     {
-            printf("finishing %d elf. %d total cal\n", currentElfNumber, totalCalories);
+            //printf("finishing %d elf. %d total cal\n", currentElfNumber, totalCalories);
             if (totalCalories > maxCalories) 
             {
                 maxCalories = totalCalories;
                 elfNumber = currentElfNumber;
-                printf("** updating max calories **\n");
+                //printf("** updating max calories **\n");
             }
             totalCalories = 0;
             currentElfNumber++;
