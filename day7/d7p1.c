@@ -25,7 +25,7 @@ typedef struct directory_t
 
 directory_t rootDir = {"/", &rootDir, NULL,NULL};
 directory_t* currentDir = 0;
-
+int totalSize = 0;
 void cdRoot(void)
 {
     currentDir = &rootDir;
@@ -54,10 +54,71 @@ void cd(char* name)
             currentDir = ptr->next;
             return;
         }
+        ptr = ptr->next;
     }
 
     printf("error finding directory\n");
     exit(-1);
+}
+
+int calculateFolders(directory_t* dir, int level, int sum)
+{
+    // calculate direct files
+    int directFilesSizeSum = 0;
+    file_t* fptr = dir->fileHead;
+
+    if (fptr)
+    {
+        for(int x=0;x<=level;x++)
+        {
+            printf(" ");
+        }
+        printf("*%s %d\n",fptr->name,fptr->size);
+        directFilesSizeSum += fptr->size;
+
+        while(fptr->next)
+        {
+            fptr = fptr->next;
+            for(int x=0;x<=level;x++)
+            {
+                printf(" ");
+            }
+            printf("*%s %d\n",fptr->name,fptr->size);
+            directFilesSizeSum += fptr->size;
+        }
+    }
+
+
+
+    printf("direct file size = %d\n", directFilesSizeSum);
+
+    int indirectFileSizeSum = 0;
+    for(int x=0;x<level;x++)
+    {
+        printf(" ");
+    }
+    printf("-%s\n", dir->name);
+
+    directory_t* ptr = dir->child;
+
+    if (ptr)
+    {
+        indirectFileSizeSum += calculateFolders(ptr,level+1,indirectFileSizeSum);
+
+        while(ptr->next)
+        {
+            indirectFileSizeSum += calculateFolders(ptr->next,level+1,indirectFileSizeSum);
+            ptr = ptr->next;
+        }
+    }
+
+    printf("indirect file size = %d\n", indirectFileSizeSum);
+
+    if (indirectFileSizeSum+directFilesSizeSum < 100000)
+    {
+        totalSize = totalSize + indirectFileSizeSum + directFilesSizeSum;
+    }
+    return indirectFileSizeSum+directFilesSizeSum;
 }
 
 void printFolderStructure(directory_t* dir, int level)
@@ -90,16 +151,16 @@ void printFolderStructure(directory_t* dir, int level)
             printf(" ");
         }
         printf("*%s %d\n",fptr->name,fptr->size);
-    }
 
-    while(fptr->next)
-    {
-        fptr = fptr->next;
-        for(int x=0;x<=level;x++)
+        while(fptr->next)
         {
-            printf(" ");
+            fptr = fptr->next;
+            for(int x=0;x<=level;x++)
+            {
+                printf(" ");
+            }
+            printf("*%s %d\n",fptr->name,fptr->size);
         }
-        printf("*%s %d\n",fptr->name,fptr->size);
     }
 }
 
@@ -225,6 +286,7 @@ void processData()
         if (ptr)
         {
             removeTrailingCharacters(ptr);
+            printf("%s\n",lineInput);
             if (strcmp("$ cd /",ptr) == 0)
             {
                 cdRoot();
@@ -267,7 +329,6 @@ void processData()
                         {
                             printf("DIR %s\n", ptr3);
                             createDirectory(currentDir,ptr3);
-                            // directory
                         }
                         else
                         {
@@ -282,16 +343,17 @@ void processData()
                     }
                 }
             }
-            //process line of data
         }
         else
         {
             printFolderStructure(&rootDir, 0);
+            calculateFolders(&rootDir, 0, 0);
+
+            printf("TOTAL SIZE %d\n",totalSize);
             //EOF reached
             break;
         }
     }
-
 }
 
 int main()
