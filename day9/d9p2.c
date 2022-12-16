@@ -167,7 +167,6 @@ void processData2(char dir, int magnitude)
             //printGrid();
         }
         //update places
-        //fprintf(fptr_write,"tail pos %d, %d\n",knot_coords[NUMBER_OF_KNOTS-1].x,knot_coords[NUMBER_OF_KNOTS-1].y);
         countingMatrix[knot_coords[NUMBER_OF_KNOTS-1].x][knot_coords[NUMBER_OF_KNOTS-1].y] |= 1;
     }
 }
@@ -185,13 +184,6 @@ void processData()
         printf("err %s\n",strerror(errno));
         return;
     }
-    
-    // fptr_write = fopen("output.txt","w");
-    // if (!fptr_write)
-    // {
-    //     printf("err %s\n",strerror(errno));
-    //     return;
-    // }
 
     printf("GRID_SIZE = %d\n",GRID_SIZE);
     //init knot_coords
