@@ -1,0 +1,82 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20241108141210
+Username: DAVID-AMD-PC\dinew
+RunAs User: DAVID-AMD-PC\dinew
+Configuration Name: 
+Machine: DAVID-AMD-PC (Microsoft Windows NT 10.0.22631.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\dinew\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 15556
+PSVersion: 5.1.22621.4249
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.4249
+BuildVersion: 10.0.22621.4249
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is logs.txt
+PS C:\Users\dinew\git\adventOfCode2022> cat logs.txt
+**********************
+Windows PowerShell transcript start
+Start time: 20241108141210
+Username: DAVID-AMD-PC\dinew
+RunAs User: DAVID-AMD-PC\dinew
+Configuration Name:
+Machine: DAVID-AMD-PC (Microsoft Windows NT 10.0.22631.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\dinew\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 15556
+PSVersion: 5.1.22621.4249
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.4249
+BuildVersion: 10.0.22621.4249
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is logs.txt
+PS C:\Users\dinew\git\adventOfCode2022> .\day11\d11p2\main.exe
+.\day11\d11p2\main.exe : The term '.\day11\d11p2\main.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:1
++ .\day11\d11p2\main.exe
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\day11\d11p2\main.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+.\day11\d11p2\main.exe : The term '.\day11\d11p2\main.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\day11\d11p2\main.exe
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\day11\d11p2\main.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\dinew\git\adventOfCode2022> .\day11\d11p2\combined.exe
+
+PS C:\Users\dinew\git\adventOfCode2022> cd .\day11\d11p2
+PS C:\Users\dinew\git\adventOfCode2022\day11\d11p2> combined.exe
+combined.exe : The term 'combined.exe' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ combined.exe
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (combined.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+combined.exe : The term 'combined.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path
+was included, verify that the path is correct and try again.
+At line:1 char:1
++ combined.exe
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (combined.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\dinew\git\adventOfCode2022\day11\d11p2> .\combined.exe
+
+PS C:\Users\dinew\git\adventOfCode2022\day11\d11p2> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20241108141354
+**********************

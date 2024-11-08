@@ -1,5 +1,4 @@
-day10/d10p2/main.pdb
-day10/d10p2/vc140.pdb
-day10/d10p2/main.exe
-day10/d10p2/main.ilk
-day10/d10p2/main.obj
+*.pdb
+*.exe
+*.ilk
+*.obj
